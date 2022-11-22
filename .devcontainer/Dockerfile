@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
   lsb-release \
   tar \
   python3.8 \
+  dos2unix \
   iputils-ping;
 
 RUN apt-get install -y ssh
