@@ -19,3 +19,14 @@ Can also set a workspace configuration in the JSON file to point to a folder tha
 
 
 May also use the devcontainer.env file to set container env variables
+
+## Tools included (so far)
+
+- kubectl
+- oc (openshift CLI)
+- dos2unix
+- docker (docker-in-docker) as rootless/non-sudo user
+- helm
+- kubeval
+- minikube (configured to use docker, 4cpu, 8GB mem)
+- sudo priviledges in container
