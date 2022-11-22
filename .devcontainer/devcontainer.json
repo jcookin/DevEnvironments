@@ -27,7 +27,8 @@
         "vscjava.vscode-maven",
         "vscjava.vscode-java-dependency",
         "vscjava.vscode-java-test",
-        "vscjava.vscode-gradle"
+        "vscjava.vscode-gradle",
+        "golang.go"
     ],
     // "workspaceFolder": "/workspaces",
     "mounts": [

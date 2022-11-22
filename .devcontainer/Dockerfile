@@ -72,6 +72,12 @@ RUN minikube config set driver docker;\
   minikube config set cpus 4;\
   minikube config set memory 8192
 
+# Install Golang
+ARG GO_VERSION=go1.19.3
+RUN wget https://go.dev/dl/$GO_VERSION.linux-amd64.tar.gz;\
+  tar -C /usr/local -xzf ${GO_VERSION}.linux.amd64.tar.gz;\
+  echo "export PATH=$PATH:/usr/local/go/bin" >> /home/${USER}/.profile
+
 # Create user group and add user
 RUN groupadd --gid $UID $USER && \
   adduser --shell /bin/bash --uid $UID --gid $UID $USER && \
