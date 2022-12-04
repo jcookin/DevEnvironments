@@ -75,8 +75,8 @@ RUN minikube config set driver docker;\
 # Install Golang
 ARG GO_VERSION=go1.19.3
 RUN wget https://go.dev/dl/$GO_VERSION.linux-amd64.tar.gz;\
-  tar -C /usr/local -xzf ${GO_VERSION}.linux.amd64.tar.gz;\
-  echo "export PATH=$PATH:/usr/local/go/bin" >> /home/${USER}/.profile
+  tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz;\
+  echo "export PATH=$PATH:/usr/local/go/bin" >> /home/${USER}/.bashrc
 
 # Create user group and add user
 RUN groupadd --gid $UID $USER && \
