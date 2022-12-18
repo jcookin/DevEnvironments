@@ -9,7 +9,7 @@ LABEL \
   user-name=$USER \
   user-id=$UID
 
-WORKDIR /workspaces
+WORKDIR /home/$USER/workspaces
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
@@ -85,3 +85,9 @@ RUN wget https://go.dev/dl/$GO_VERSION.linux-amd64.tar.gz;\
   echo "export PATH=$PATH:/usr/local/go/bin" >> /home/$USER/.bashrc
 
 USER $UID
+
+# setup Nodejs
+RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash; \
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"; \
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm; \
+  nvm install 18.12.1;
