@@ -1,14 +1,14 @@
 {
     "name": "Dev checkout workspace",
-    "containerEnv": {
-        "USERNAME": "your-username"
-    },
     "build": {
         "dockerfile": "Dockerfile"
     },
+    // "workspaceFolder": "${localEnv:HOME}",
+    // "workspaceMount": "${localEnv:HOME}",
     "runArgs": [
         "--privileged",
-        "--env-file", ".devcontainer/devcontainer.env"
+        "--env-file",
+        ".devcontainer/devcontainer.env"
     ],
     "extensions": [
         "ms-python.python",
@@ -28,13 +28,12 @@
         "vscjava.vscode-java-dependency",
         "vscjava.vscode-java-test",
         "vscjava.vscode-gradle",
-        "golang.go"
+        "golang.go",
+        "vue.volar"
     ],
-    // "workspaceFolder": "/workspaces",
     "mounts": [
-      "source=/home/${containerEnv:USERNAME}/.ssh,target=/home/${containerEnv:USERNAME}/.ssh/,type=bind",
-      "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-      "source=/c/dev,target=/c/dev/,type=bind"
+        "source=${localEnv:HOME}/.ssh,target=${containerEnv:HOME}/.ssh/,type=bind", // ssh keys for access in container
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" // Docker in docker
     ],
     "settings": {
         "editor.formatOnPaste": true,
