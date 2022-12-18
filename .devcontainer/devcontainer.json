@@ -1,8 +1,9 @@
 {
-    "name": "Dev checkout workspace",
+    "name": "Dev software workspace",
     "build": {
         "dockerfile": "Dockerfile"
     },
+    "remoteUser": "dev",
     // "workspaceFolder": "${localEnv:HOME}",
     // "workspaceMount": "${localEnv:HOME}",
     "runArgs": [
@@ -32,7 +33,7 @@
         "vue.volar"
     ],
     "mounts": [
-        "source=${localEnv:HOME}/.ssh,target=${containerEnv:HOME}/.ssh/,type=bind", // ssh keys for access in container
+        "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh/,type=bind", // ssh keys for access in container
         "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" // Docker in docker
     ],
     "settings": {

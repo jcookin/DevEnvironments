@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ARG USER=<username>
+ARG USER=dev
 ARG UID=1000
 
 LABEL \
@@ -8,8 +8,6 @@ LABEL \
   name="Dev workspace" \
   user-name=$USER \
   user-id=$UID
-
-WORKDIR /home/$USER/workspaces
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
@@ -91,3 +89,5 @@ RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | 
   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"; \
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm; \
   nvm install 18.12.1;
+
+WORKDIR /home/$USER/workspaces
